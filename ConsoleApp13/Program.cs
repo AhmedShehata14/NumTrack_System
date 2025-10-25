@@ -64,8 +64,8 @@ namespace NumTrack_System
                     }
                     Console.ReadKey();
                     Console.Clear();
-                }
-                //متوسط القيم
+
+                }//متوسط القيم
                 else if (inputChar == 'M')
                 {
                     int Sum = 0;
@@ -207,56 +207,56 @@ namespace NumTrack_System
                 }//الاستبدال
                 else if (inputChar == 'W')
                 {
-
-                    if (ListOfNumbers.Count() == 0)
+                    if (ListOfNumbers.Count == 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(Tab + "The List is Empty !!");
-
+                        Console.ResetColor();
                         Console.ReadKey();
                         Console.Clear();
                         continue;
                     }
 
-                    int SW = 0;
-                    Console.Write(Tab + "Plase enter  the First Number: ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write(Tab + "Please enter the First Number: ");
                     int FNum1 = Convert.ToInt32(Console.ReadLine());
-                    Console.Write(Tab + "Plase enter  the Second Number: ");
+
+                    Console.Write(Tab + "Please enter the Second Number: ");
                     int SNum2 = Convert.ToInt32(Console.ReadLine());
+                    Console.ResetColor();
 
                     if (ListOfNumbers.Contains(FNum1) && ListOfNumbers.Contains(SNum2))
                     {
-                        SW = ListOfNumbers[FNum1 - 1];
-                        ListOfNumbers[FNum1 - 1] = ListOfNumbers[SNum2 - 1];
-                        ListOfNumbers[SNum2 - 1] = SW;
+                        int index1 = ListOfNumbers.IndexOf(FNum1);
+                        int index2 = ListOfNumbers.IndexOf(SNum2);
+
+                        
+                        int temp = ListOfNumbers[index1];
+                        ListOfNumbers[index1] = ListOfNumbers[index2];
+                        ListOfNumbers[index2] = temp;
 
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"\n{Tab}======= output =====================");
+                        Console.WriteLine($"\n{Tab}======= Output After Swapping =====================");
                         Console.Write(Tab);
 
-                        int Start = 0;
-                        int LenghtOfList = ListOfNumbers.Count;
-
-                        for (int i = Start; i < LenghtOfList; i++)
+                        foreach (var num in ListOfNumbers)
                         {
-                            Console.Write(ListOfNumbers[i] + " ");
+                            Console.Write(num + " ");
                         }
-                        Console.WriteLine("\n" + Tab + "====================================\n");
+
+                        Console.WriteLine("\n" + Tab + "====================================================\n");
+                        Console.ResetColor();
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine(Tab + "There is a problem with the numbers ");
-
-                        Console.ReadKey();
-                        Console.Clear();
-                        continue;
-
+                        Console.WriteLine(Tab + "❌ One or both numbers not found in the list!");
+                        Console.ResetColor();
                     }
                     Console.ReadKey();
                     Console.Clear();
 
-                }   //تصاعدى
+                } //تصاعدى
                 else if (inputChar == 'O')
                 {
 
@@ -446,7 +446,9 @@ namespace NumTrack_System
             Console.WriteLine(Tab + "C - Clear the whole list       ");
             Console.WriteLine(Tab + "Q - Quit                       ");
             Console.WriteLine(Tab + "====================================");
+
         }
+
     }
 
 }
