@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Immutable;
 using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics.X86;
@@ -61,6 +61,8 @@ namespace ConsoleApp7
                         Console.WriteLine(Tab + "====================================\n");
 
                     }
+                    Console.ReadKey();
+                    Console.Clear();
                 }//عرض المحتوى
                 else if (inputChar == 'P')
                 {
@@ -83,6 +85,8 @@ namespace ConsoleApp7
                         }
                         Console.WriteLine("\n" + Tab + "====================================\n");
                     }
+                    Console.ReadKey();
+                    Console.Clear();
                 }
                 //متوسط القيم
                 else if (inputChar == 'M')
@@ -94,9 +98,10 @@ namespace ConsoleApp7
 
                     if (NumebrList == 0)
                     {
-
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(Tab + "The List is Empty!!");
+                        Console.ReadKey();
+                        Console.Clear();
                         continue;
                     }
 
@@ -108,9 +113,10 @@ namespace ConsoleApp7
 
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine($"\n{Tab}======= output =====================");
-                    Console.WriteLine(Tab + $"Mean {Avg}");
+                    Console.WriteLine(Tab + $"Avg =  {Avg}");
                     Console.WriteLine(Tab + "====================================\n");
-
+                    Console.ReadKey();
+                    Console.Clear();
 
                 }//اضغر قيمة 
                 else if (inputChar == 'S')
@@ -122,6 +128,8 @@ namespace ConsoleApp7
                         Console.WriteLine($"\n{Tab}======= output =====================");
                         Console.WriteLine(Tab + "The List is Empty");
                         Console.WriteLine(Tab + "====================================\n");
+                        Console.ReadKey();
+                        Console.Clear();
                         continue;
                     }
 
@@ -140,8 +148,9 @@ namespace ConsoleApp7
                     Console.WriteLine($"\n{Tab}======= output =====================");
                     Console.WriteLine(Tab + $"The Smallest number is {SmalNumber}");
                     Console.WriteLine(Tab + "====================================\n");
-
-
+                    Console.ReadKey();
+                    Console.Clear();
+                    
                 }//اكبر قيمة
                 else if (inputChar == 'L')
                 {
@@ -151,6 +160,8 @@ namespace ConsoleApp7
                         Console.WriteLine($"\n{Tab}======= output =====================");
                         Console.WriteLine(Tab + "The List is Empty");
                         Console.WriteLine(Tab + "====================================\n");
+                        Console.ReadKey();
+                        Console.Clear();
                         continue;
                     }
 
@@ -170,6 +181,8 @@ namespace ConsoleApp7
                     Console.WriteLine($"\n{Tab}======= output =====================");
                     Console.WriteLine(Tab + $"The Largest number is {LargNumber}");
                     Console.WriteLine(Tab + "====================================\n");
+                    Console.ReadKey();
+                    Console.Clear();
 
                 }//البحث
                 else if (inputChar == 'F')
@@ -211,6 +224,8 @@ namespace ConsoleApp7
                         Console.WriteLine(Tab + $"Needed number not the List!!");
                         Console.WriteLine(Tab + "====================================\n");
                     }
+                    Console.ReadKey();
+                    Console.Clear();
 
                 }//الاستبدال
                 else if (inputChar == 'W')
@@ -220,6 +235,9 @@ namespace ConsoleApp7
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(Tab + "The List is Empty !!");
+
+                        Console.ReadKey();
+                        Console.Clear();
                         continue;
                     }
 
@@ -247,22 +265,37 @@ namespace ConsoleApp7
                             Console.Write(ListOfNumbers[i] + " ");
                         }
                         Console.WriteLine("\n" + Tab + "====================================\n");
-
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(Tab + "There is a problem with the numbers ");
+
+                        Console.ReadKey();
+                        Console.Clear();
                         continue;
 
                     }
+                    Console.ReadKey();
+                    Console.Clear();
 
                 }   //تصاعدى
                 else if (inputChar == 'O')
-                {//5 4 33 1 9 56
+                {
+
+                    if (ListOfNumbers.Count == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"\n{Tab}======= output =====================");
+                        Console.WriteLine(Tab + "The List is Empty");
+                        Console.WriteLine(Tab + "====================================\n");
+
+                        Console.ReadKey();
+                        Console.Clear();
+                        continue;
+                    }
 
                     int smallNumber = ListOfNumbers[0];
-
                     int StartI = 0;
                     int End = ListOfNumbers.Count;
 
@@ -304,10 +337,23 @@ namespace ConsoleApp7
                     {
                         continue;
                     }
+                    Console.ReadKey();
+                    Console.Clear();
 
                 }//الترتيب التنازلى Descending order
                 else if (inputChar == 'E')
                 {
+                    if (ListOfNumbers.Count == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"\n{Tab}======= output =====================");
+                        Console.WriteLine(Tab + "The List is Empty");
+                        Console.WriteLine(Tab + "====================================\n");
+                        Console.ReadKey();
+                        Console.Clear();
+                        continue;
+                    }
+
                     int LargeNumber = ListOfNumbers[0];
                     int StartI = 0;
                     int End = ListOfNumbers.Count;
@@ -350,7 +396,8 @@ namespace ConsoleApp7
                     {
                         continue;
                     }
-
+                    Console.ReadKey();
+                    Console.Clear();
                 }//الحذف
                 else if (inputChar == 'C')
                 {
@@ -360,6 +407,8 @@ namespace ConsoleApp7
                     Console.WriteLine($"\n{Tab}======= output =====================");
                     Console.WriteLine(Tab + "List Clear successed");
                     Console.WriteLine(Tab + "====================================\n");
+                    Console.ReadKey();
+                    Console.Clear();
 
                 }//الانتهاء
                 else if (inputChar == 'Q')
@@ -370,6 +419,8 @@ namespace ConsoleApp7
 
                     if (Bo == 'N')
                     {
+                        Console.ReadKey();
+                        Console.Clear();
                         continue;
                     }
                     else
@@ -379,14 +430,15 @@ namespace ConsoleApp7
                         Console.WriteLine(Tab + "====================================\n");
                         break;
                     }
-
                 }//لو دخل رقم غلط
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"\n{Tab}======= output =====================");
-                    Console.WriteLine($"\n{Tab}Plase enter Only Char ==> (P,A,M,S,L,F,C,Q)");
-                    Console.WriteLine(Tab + "====================================\n");
+                    Console.WriteLine($"\n{Tab}======= output ============================");
+                    Console.WriteLine($"{Tab}Plase enter Only Char ==> (P,A,M,S,L,F,C,Q)");
+                    Console.WriteLine(Tab + "===========================================\n");
+                    Console.ReadKey();
+                    Console.Clear();
 
                 }
             }
@@ -403,7 +455,7 @@ namespace ConsoleApp7
             Console.WriteLine(Tab + "============= Min Menue ============\n");
             Console.WriteLine(Tab + "P - Print number               ");
             Console.WriteLine(Tab + "A - Add number                 ");
-            Console.WriteLine(Tab + "M - Display mean of the numbers");
+            Console.WriteLine(Tab + "M - Display Avrage of the numbers");
             Console.WriteLine(Tab + "S - Display the smallest number");
             Console.WriteLine(Tab + "L - Display the largest number ");
             Console.WriteLine(Tab + "E - Descending order           ");
