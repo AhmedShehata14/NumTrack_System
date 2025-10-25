@@ -5,7 +5,7 @@ using System.Runtime.Intrinsics.X86;
 using System.Threading.Channels;
 using System.Xml.Linq;
 
-namespace ConsoleApp7
+namespace NumTrack_System
 {
     internal class Program
     {
@@ -26,43 +26,20 @@ namespace ConsoleApp7
                 if (inputChar == 'A')
                 {
                     int AddNumber = 0;
-                    bool flage = false;
-
+                    int Start = 0;
+                    int End = ListOfNumbers.Count;
+               
                     Console.Write(Tab + "Plase Enter The Number to Add : ==> ");
                     AddNumber = Convert.ToInt32(Console.ReadLine());
 
-                    int Start = 0;
-                    int End = ListOfNumbers.Count;
-
-                    for (int i = Start; i < End; i++)
-                    {
-                        if (ListOfNumbers[i] == AddNumber)
-                        {
-                            flage = true;
-                            break;
-                        }
-                    }
-
-                    if (flage == true)
-                    {
-
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"\n{Tab}======= output =====================");
-                        Console.WriteLine(Tab + "The Number is Found");
-                        Console.WriteLine(Tab + "====================================\n");
-
-                    }
-                    else
-                    {
-                        ListOfNumbers.Add(AddNumber);
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"\n{Tab}======= output =====================");
-                        Console.WriteLine(Tab + $"{AddNumber} added");
-                        Console.WriteLine(Tab + "====================================\n");
-
-                    }
+                    ListOfNumbers.Add(AddNumber);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"\n{Tab}======= output =====================");
+                    Console.WriteLine(Tab + $"{AddNumber} added");
+                    Console.WriteLine(Tab + "====================================\n");
                     Console.ReadKey();
                     Console.Clear();
+
                 }//عرض المحتوى
                 else if (inputChar == 'P')
                 {
@@ -150,7 +127,7 @@ namespace ConsoleApp7
                     Console.WriteLine(Tab + "====================================\n");
                     Console.ReadKey();
                     Console.Clear();
-                    
+
                 }//اكبر قيمة
                 else if (inputChar == 'L')
                 {
@@ -335,6 +312,8 @@ namespace ConsoleApp7
                     }
                     else if (chack == 'n')
                     {
+                        Console.ReadKey();
+                        Console.Clear();
                         continue;
                     }
                     Console.ReadKey();
@@ -394,6 +373,8 @@ namespace ConsoleApp7
                     }
                     else if (chack == 'n')
                     {
+                        Console.ReadKey();
+                        Console.Clear();
                         continue;
                     }
                     Console.ReadKey();
@@ -465,9 +446,7 @@ namespace ConsoleApp7
             Console.WriteLine(Tab + "C - Clear the whole list       ");
             Console.WriteLine(Tab + "Q - Quit                       ");
             Console.WriteLine(Tab + "====================================");
-
         }
-
     }
 
 }
